@@ -23,6 +23,7 @@ dependencies = [
     "reportlab",
     "python-dotenv",
     "openai",
+    "sentence-transformers",
 ]
 
 [project.optional-dependencies]
