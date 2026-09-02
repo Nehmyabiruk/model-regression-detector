@@ -1,0 +1,15 @@
+pyproject.toml
+src/mrd/__init__.py
+src/mrd/config.py
+src/mrd/schemas.py
+src/mrd.egg-info/PKG-INFO
+src/mrd.egg-info/SOURCES.txt
+src/mrd.egg-info/dependency_links.txt
+src/mrd.egg-info/entry_points.txt
+src/mrd.egg-info/requires.txt
+src/mrd.egg-info/top_level.txt
+src/mrd/baseline/manager.py
+src/mrd/comparison/comparator.py
+src/mrd/evaluation/evaluator.py
+src/mrd/metrics/__init__.py
+src/mrd/metrics/classification.py

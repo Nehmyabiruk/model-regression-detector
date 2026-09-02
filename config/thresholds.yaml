@@ -1,0 +1,120 @@
+classification:
+  binary:
+    accuracy:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    precision:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    recall:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    f1:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    roc_auc:
+      direction: higher_is_better
+      max_regression: 0.01
+
+    average_precision:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    log_loss:
+      direction: lower_is_better
+      max_regression: 0.03
+
+  multiclass:
+    accuracy:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    precision:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    recall:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    f1:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    roc_auc:
+      direction: higher_is_better
+      max_regression: 0.02
+
+    log_loss:
+      direction: lower_is_better
+      max_regression: 0.03
+
+regression:
+  mae:
+    direction: lower_is_better
+    max_regression: 0.05
+
+  mse:
+    direction: lower_is_better
+    max_regression: 0.05
+
+  rmse:
+    direction: lower_is_better
+    max_regression: 0.05
+
+  r2:
+    direction: higher_is_better
+    max_regression: 0.02
+
+forecasting:
+  mae:
+    direction: lower_is_better
+    max_regression: 0.05
+
+  rmse:
+    direction: lower_is_better
+    max_regression: 0.05
+
+  r2:
+    direction: higher_is_better
+    max_regression: 0.02
+
+timeseries:
+  mae:
+    direction: lower_is_better
+    max_regression: 0.05
+
+  rmse:
+    direction: lower_is_better
+    max_regression: 0.05
+
+  r2:
+    direction: higher_is_better
+    max_regression: 0.02
+
+drift:
+  psi:
+    low: 0.10
+    moderate: 0.25
+
+segments:
+  minimum_sample_count: 100
+
+  age:
+    boundaries:
+      - 18
+      - 25
+      - 40
+      - 60
+      - 100
+
+  income:
+    boundaries:
+      - 0
+      - 30000
+      - 70000
+      - 150000
