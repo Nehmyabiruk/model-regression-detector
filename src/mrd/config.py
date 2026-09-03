@@ -7,34 +7,33 @@ def load_thresholds(path: Path | None = None) -> dict:
     """Load regression thresholds from a YAML configuration file."""
 
     if path is None:
-        # Try several possible locations
-        candidates = [
-            # 1. Explicit environment variable
-            Path(os.getenv("THRESHOLDS_PATH", "")),
+        candidates = []
 
-            # 2. Project root / config/thresholds.yaml  (local development)
+        # 1. Explicit environment variable (highest priority)
+        env_path = os.getenv("THRESHOLDS_PATH")
+        if env_path:
+            candidates.append(Path(env_path))
+
+        # 2. Common locations
+        candidates.extend([
             Path.cwd() / "config" / "thresholds.yaml",
-
-            # 3. Project root / thresholds.yaml  (if you put it in root)
             Path.cwd() / "thresholds.yaml",
-
-            # 4. Relative to this file (works after pip install if you move the file later)
             Path(__file__).resolve().parent / "thresholds.yaml",
             Path(__file__).resolve().parents[2] / "config" / "thresholds.yaml",
             Path(__file__).resolve().parents[2] / "thresholds.yaml",
-        ]
+        ])
 
         for candidate in candidates:
-            if candidate and candidate.exists():
+            if candidate.exists() and candidate.is_file():
                 path = candidate
                 break
         else:
             raise FileNotFoundError(
                 "Threshold configuration not found. Tried:\n"
-                + "\n".join(f"  - {c}" for c in candidates if c)
+                + "\n".join(f"  - {c}" for c in candidates)
             )
 
-    if not path.exists():
+    if not path.exists() or not path.is_file():
         raise FileNotFoundError(f"Threshold configuration not found: {path}")
 
     with path.open("r", encoding="utf-8") as file:
