@@ -40,17 +40,25 @@ app = FastAPI(
 )
 
 # Configure CORS
+frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
+
+allowed_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "https://model-regression-detector-frontend.onrender.com",
+]
+
+if frontend_url and frontend_url not in allowed_origins:
+    allowed_origins.append(frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",  # Vite dev server
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",  # Alternative dev port
-        os.getenv("FRONTEND_URL", "http://localhost:5173"),
-    ],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 
