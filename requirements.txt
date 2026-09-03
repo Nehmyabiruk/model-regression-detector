@@ -1,13 +1,18 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+numpy>=2.0
+pandas>=2.2
+scikit-learn>=1.5
+pydantic>=2.8
+pyyaml>=6.0
+joblib>=1.4
 fastapi
 uvicorn[standard]
-pandas
-numpy
-scikit-learn
-xgboost
-joblib
-pyyaml
 python-multipart
+xgboost
+sqlalchemy
+psycopg[binary]
 reportlab
-requests
 python-dotenv
 openai
+sentence-transformers

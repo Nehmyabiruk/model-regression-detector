@@ -8,7 +8,6 @@ version = "0.1.0"
 description = "Production-oriented framework for detecting machine learning model regressions."
 requires-python = ">=3.11"
 dependencies = [
-    "torch --index-url https://download.pytorch.org/whl/cpu",
     "numpy>=2.0",
     "pandas>=2.2",
     "scikit-learn>=1.5",
