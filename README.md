@@ -964,8 +964,5 @@ https://github.com/Nehmyabiruk
 
 # License
 
-Add your preferred open-source license here.
-
-For example:
 
 MIT License
